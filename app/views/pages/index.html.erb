@@ -1,0 +1,41 @@
+<h2>Are there donuts?</h2>
+
+
+<%= check_box_tag :donuts_available, "yes" %>
+<%= label_tag :yes %>
+<%= check_box_tag :donuts_available, "no" %>
+<%= label_tag :no %>
+
+<div class="container">
+  <%= form_tag "/donuts", method: :post do %>
+    <div class="form form-group">
+      <%= label_tag :brand, "Brand/Store" %>
+      <%= text_field_tag :brand, nil, class: "form-control" %>
+    </div>
+    <div class="form form-group">
+      <%= label_tag :quantity %>
+      <%= text_field_tag :quantity, nil, class: "form-control" %>
+    </div>
+    <div class="form form-group">
+      <%= label_tag :from, "Brought in by" %>
+      <%= text_field_tag :name, nil, class: "form-control" %>
+    </div>
+    <div class="form form-group">
+      <%= button_tag "Submit", class: "btn btn-default" %> 
+    <% end %>
+  </div>
+</div>
+
+
+
+
+<h2><%= @message %></h2>
+<div ng-app="app">
+  <div ng-controller="formCtrl">
+    <div ng-repeat="donut in donuts" >
+      <ul>
+        <li>{{ donut.brand }} donuts brought in today by {{ donut.name }}, quantity: {{ donut.number }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
