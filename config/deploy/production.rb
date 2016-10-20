@@ -1,4 +1,4 @@
-server '35.160.212.62', user: 'deploy', roles: %w{web app db}
+# server 'ec2-35-160-212-62.us-west-2.compute.amazonaws.com', user: 'deploy', roles: %w{web app db}
 
 # server-based syntax
 # ======================
@@ -51,13 +51,13 @@ server '35.160.212.62', user: 'deploy', roles: %w{web app db}
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-# server 'example.com',
-#   user: 'user_name',
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: 'user_name', # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: 'please use keys'
-#   }
+server 'ec2-35-160-212-62.us-west-2.compute.amazonaws.com',
+  user: 'deploy',
+  roles: %w{web app db},
+  ssh_options: {
+    user: 'deploy', # overrides user setting above
+    keys: %w(~/.ssh/id_rsa),
+    forward_agent: false,
+    auth_methods: %w(publickey password)
+    # password: ENV['DEPLOY_PASSWORD']
+  }
