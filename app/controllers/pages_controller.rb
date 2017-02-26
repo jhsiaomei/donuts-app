@@ -8,13 +8,4 @@ class PagesController < ApplicationController
       @class = " response-no"
     end
   end
-
-  # def create
-  #   Donut.create(
-  #     brand: params[:brand],
-  #     number: params[:quantity],
-  #     name: params[:name],
-  #     date: Date.today
-  #     )
-  # end
 end
