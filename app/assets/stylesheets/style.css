@@ -1,0 +1,60 @@
+body {
+  background: url(donuts.jpg) no-repeat center center fixed;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  font-family: 'Kanit', sans-serif;
+  text-align: center;
+}
+
+ul {
+  list-style-position: inside;
+}
+
+label, input, .btn, #myModalLabel {
+  font-weight: 200;
+}
+
+.modal-buttons {
+  text-align: center;
+}
+
+#question-text {
+  border-radius: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+#donut-form {
+  text-align: left;
+}
+
+#modal-button {
+  text-align: center;
+}
+
+#title-text {
+  font-size: 120px;
+  color: #F75BBE;
+  line-height: 100px;
+  margin-top: 120px;
+}
+
+.message-text {
+  display: inline-block;
+  font-size: 100px;
+  color: #FFFFFF;
+  background-color: #F75BBE;
+  padding: 0px 15px 0px 15px;
+  margin-bottom: 50px;
+}
+
+.response-no {
+  background-color: #444444;
+}
+
+#no-donut {
+  display: none;
+}

@@ -1,14 +1,21 @@
 (function() {
   'use strict';
-  angular.module('app').filter('currentDate', function() {
-    return function() {
-        (new Date, 'yyyy-MM-dd');
-    };
-  })
+  // angular.module('app').filter('currentDate', function() {
+  //   return function() {
+  //       (new Date, 'yyyy-MM-dd');
+  //   };
+  // })
 
   angular.module('app').controller('formCtrl', function($scope, $http) {
     $http.get('api/v1/donuts.json').success(function(data, status, headers, config) {
       $scope.donuts = data;
+      // $scope.donuts.forEach(function(donut) {
+      //   var date = new Date;
+      //   console.log(date);
+      //   if (donut.date == date.today) {
+
+      //   }
+      // });
     });
 
 

@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      get '/donuts' => 'donuts#index'
+      get '/alldonuts' => 'donuts#index'
+      get '/donutstoday' => 'donuts#today'
+      get '/donutshistory' => 'donuts#history'
+      post '/donuts' => 'donuts#create'
     end
   end
 end

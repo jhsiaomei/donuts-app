@@ -1,41 +1,55 @@
-<h2>Are there donuts?</h2>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-success btn-lg" id="question-text" data-toggle="modal" data-target="#myModal">
+  Did you bring donuts? &rarr;
+</button>
 
-<%= check_box_tag :donuts_available, "yes" %>
-<%= label_tag :yes %>
-<%= check_box_tag :donuts_available, "no" %>
-<%= label_tag :no %>
-
-<div class="container">
-  <%= form_tag "/donuts", method: :post do %>
-    <div class="form form-group">
-      <%= label_tag :brand, "Brand/Store" %>
-      <%= text_field_tag :brand, nil, class: "form-control" %>
-    </div>
-    <div class="form form-group">
-      <%= label_tag :quantity %>
-      <%= text_field_tag :quantity, nil, class: "form-control" %>
-    </div>
-    <div class="form form-group">
-      <%= label_tag :from, "Brought in by" %>
-      <%= text_field_tag :name, nil, class: "form-control" %>
-    </div>
-    <div class="form form-group">
-      <%= button_tag "Submit", class: "btn btn-default" %> 
-    <% end %>
-  </div>
-</div>
-
-
-
-
-<h2><%= @message %></h2>
-<div ng-app="app">
-  <div ng-controller="formCtrl">
-    <div ng-repeat="donut in donuts" >
-      <ul>
-        <li>{{ donut.brand }} donuts brought in today by {{ donut.name }}, quantity: {{ donut.number }}</li>
-      </ul>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">What did you bring?</h4>
+      </div>
+      <div class="modal-body">
+        <div id="donut-form">
+          <%= form_tag "/api/v1/donuts", method: :post do %>
+            <div class="form form-group">
+              <%= label_tag :brand, "Brand/Store:" %>
+              <%= text_field_tag :brand, nil, class: "form-control", id: "form-brand" %>
+            </div>
+            <div class="form form-group">
+              <%= label_tag :quantity, "Quantity:" %>
+              <%= text_field_tag :number, nil, class: "form-control", id: "form-quantity" %>
+            </div>
+            <div class="form form-group">
+              <%= label_tag :from, "Your name:" %>
+              <%= text_field_tag :name, nil, class: "form-control", id: "form-name" %>
+            </div>
+            <div class="form form-group" id="modal-button">
+              <button type="submit" class="btn btn-success">I brought these!</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">just kidding...</button>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+
+<h2 id="title-text">ARE THERE DONUTS?</h2>
+
+<h2 class="message-text<%= @class %>"><%= @message %></h2>
+
+<div id="output">
+</div>
+<script id="donut-data" type="text/x-handlebars-template">
+  <div class="entry">
+    <ul>
+    {{#each donuts}}
+      <li>{{number}} donut(s) from {{brand}} were brought in by {{name}} on {{date}}</li>
+    {{/each}}
+    </ul>
+  </div>
+</script>
