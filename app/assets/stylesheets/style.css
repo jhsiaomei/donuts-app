@@ -13,7 +13,7 @@ ul {
   list-style-position: inside;
 }
 
-label, input, p, .btn, #myModalLabel {
+label, input, p, .btn {
   font-weight: 200;
 }
 
@@ -22,12 +22,33 @@ p {
 }
 
 hr {
-  border-top-color: black;
+  border-top-color: #6ACC9D !important;
+  border-top: 2px solid;
   width: 60%;
 }
 
-.modal-buttons {
+.modal-button {
   text-align: center;
+}
+
+.form-button, .modal-content {
+  border-radius: 0px;
+}
+
+.btn-success {
+  background-color: #6ACC9D;
+  border-color: #6ACC9D;
+}
+
+.btn-success:hover, .btn-success:active {
+  background-color: #51B384;
+  border-color: #51B384;
+}
+
+.btn-success:focus {
+  background-color: #51B384 !important;
+  border-color: #51B384 !important;
+  outline: 0 !important;
 }
 
 #question-button {
@@ -37,12 +58,12 @@ hr {
   top: 0px;
 }
 
-#donut-form {
-  text-align: left;
+#myModalLabel {
+  font-weight: 300;
 }
 
-#modal-button {
-  text-align: center;
+#donut-form {
+  text-align: left;
 }
 
 #title-text {
