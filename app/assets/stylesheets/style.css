@@ -21,6 +21,11 @@ p {
   font-size: 18px;
 }
 
+hr {
+  border-top-color: black;
+  width: 60%;
+}
+
 .modal-buttons {
   text-align: center;
 }
@@ -69,7 +74,7 @@ p {
 }
 
 .history {
-  margin-top: 50px;
+  /*margin-top: 50px;*/
   font-size: 22px;
   font-weight: 300;
 }
