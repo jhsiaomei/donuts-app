@@ -12,6 +12,10 @@ class Api::V1::DonutsController < ApplicationController
   end
 
   def create
+    p "====="
+    p Date.today.strftime("%m/%e/%Y")
+    p "====="
+
     Donut.create(
       brand: params[:brand],
       number: params[:number],

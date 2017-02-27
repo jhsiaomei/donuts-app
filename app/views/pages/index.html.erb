@@ -13,7 +13,7 @@
       </div>
       <div class="modal-body">
         <div id="donut-form">
-          <%= form_tag "/api/v1/donuts", method: :post do %>
+          <%= form_tag "/api/v1/donuts", method: :post, :id => "goodCoworkerForm" do %>
             <div class="form form-group">
               <%= label_tag :brand, "Brand/Store:" %>
               <%= text_field_tag :brand, nil, class: "form-control", id: "form-brand" %>
@@ -42,14 +42,37 @@
 
 <h2 class="message-text<%= @class %>"><%= @message %></h2>
 
-<div id="output">
+<div id="outputToday">
 </div>
-<script id="donut-data" type="text/x-handlebars-template">
-  <div class="entry">
-    <ul>
+
+<div class="container history-container">
+  <div>
+    <h4 class="history">Previous kind souls:</h4>
+      <div id="outputHistory">
+      </div>
+  </div>
+</div>
+
+<script id="donutDataToday" type="text/x-handlebars-template">
+  {{#each donuts}}
+    <div class="row">
+      <div class="col-md-12">
+        <p>
+          {{name}} brought {{number}} {{isPlural}} from {{brand}} today!
+        </p>
+      </div>
+    </div>
+  {{/each}}
+</script>
+
+<script id="donutDataHistory" type="text/x-handlebars-template">
+  <div class="row">
     {{#each donuts}}
-      <li>{{number}} donut(s) from {{brand}} were brought in by {{name}} on {{date}}</li>
+      <div class="col-md-4">
+        <p>
+          {{name}} brought {{number}} {{isPlural}} from {{brand}} on {{date}}
+        </p>
+      </div>
     {{/each}}
-    </ul>
   </div>
 </script>

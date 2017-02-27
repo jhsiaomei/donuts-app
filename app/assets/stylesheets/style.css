@@ -13,8 +13,12 @@ ul {
   list-style-position: inside;
 }
 
-label, input, .btn, #myModalLabel {
+label, input, p, .btn, #myModalLabel {
   font-weight: 200;
+}
+
+p {
+  font-size: 18px;
 }
 
 .modal-buttons {
@@ -49,7 +53,7 @@ label, input, .btn, #myModalLabel {
   color: #FFFFFF;
   background-color: #F75BBE;
   padding: 0px 15px 0px 15px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .response-no {
@@ -58,4 +62,14 @@ label, input, .btn, #myModalLabel {
 
 #no-donut {
   display: none;
+}
+
+.history-container {
+  width: 70%;
+}
+
+.history {
+  margin-top: 50px;
+  font-size: 22px;
+  font-weight: 300;
 }

@@ -3,29 +3,44 @@ $(document).ready(function() {
   var allDonutData,
       donutsToday,
       donutsHistory,
-      template = Handlebars.compile($("#donut-data").html()),
-      valuesToSubmit;
-
-  $.get('api/v1/alldonuts.json').success(function(data) {
-    allDonutData = {donuts: data};
-    // $('#output').html(template(allDonutData));
-  });
+      templateToday = Handlebars.compile($("#donutDataToday").html()),
+      templateHistory = Handlebars.compile($("#donutDataHistory").html()),
+      valuesToSubmit,
+      myModal = $('#myModal'),
+      outputToday = $('#outputToday'),
+      outputHistory = $('#outputHistory'),
+      myInput = $('#myInput'),
+      goodCoworkerForm = $('#goodCoworkerForm');
 
   $.get('api/v1/donutstoday.json').success(function(data) {
     donutsToday = {donuts: data};
-    // $('#output').html(template(donutsToday));
+    $.each(donutsToday.donuts, function(index, donut) {
+      if (donut.number > 1) {
+        donut.isPlural = 'donuts';
+      } else {
+        donut.isPlural = 'donut';
+      }
+    });
+    outputToday.html(templateToday(donutsToday));
   });
 
   $.get('api/v1/donutshistory.json').success(function(data) {
     donutsHistory = {donuts: data};
-    $('#output').html(template(donutsHistory));
+    $.each(donutsHistory.donuts, function(index, donut) {
+      if (donut.number > 1) {
+        donut.isPlural = 'donuts';
+      } else {
+        donut.isPlural = 'donut';
+      }
+    });
+    outputHistory.html(templateHistory(donutsHistory));
   });
 
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').focus();
+  myModal.on('shown.bs.modal', function () {
+    myInput.focus();
   });
 
-  $('form').submit(function(e) {  
+  goodCoworkerForm.submit(function(e) {  
     e.preventDefault();
 
     var valuesToSubmit = $(this).serialize();
@@ -38,7 +53,8 @@ $(document).ready(function() {
         dataType: "JSON" // you want a difference between normal and ajax-calls, and json is standard
     }).done(function(){
         console.log("success");
-        $("#myModal").modal('hide');
+        myModal.modal('hide');
+        $('input').val('');
     });
     return false; // prevents normal behaviour
   });
