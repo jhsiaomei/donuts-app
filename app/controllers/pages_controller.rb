@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def index
-    donuts_today = Donut.where(date: Date.today)
+    date_today = Date.today.strftime("%m/%e/%Y")
+    donuts_today = Donut.where(date: date_today)
+
     if donuts_today.length > 0
       @message = "YAS!"
     else
