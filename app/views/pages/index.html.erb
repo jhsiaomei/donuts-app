@@ -16,15 +16,15 @@
           <%= form_tag "/api/v1/donuts", method: :post, :id => "goodCoworkerForm" do %>
             <div class="form form-group">
               <%= label_tag :brand, "Brand/Store:" %>
-              <%= text_field_tag :brand, nil, class: "form-control", id: "form-brand" %>
+              <%= text_field_tag :brand, nil, required: true, class: "form-control", id: "form-brand" %>
             </div>
             <div class="form form-group">
               <%= label_tag :quantity, "Quantity:" %>
-              <%= text_field_tag :number, nil, class: "form-control", id: "form-quantity" %>
+              <%= text_field_tag :number, nil, required: true, class: "form-control", id: "form-quantity" %>
             </div>
             <div class="form form-group">
               <%= label_tag :from, "Your name:" %>
-              <%= text_field_tag :name, nil, class: "form-control", id: "form-name" %>
+              <%= text_field_tag :name, nil, required: true, class: "form-control", id: "form-name" %>
             </div>
             <div class="form form-group modal-button">
               <button type="submit" class="btn btn-success form-button">I brought these!</button>
